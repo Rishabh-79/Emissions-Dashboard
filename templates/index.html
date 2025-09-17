@@ -38,16 +38,65 @@
                 min-width: 180px;
                 text-align: center;
             }
+
+            #Options {
+            width: 100%;
+            padding: 10px 12px;
+            margin-top: 6px;
+            background-color: #1a1a1a;
+            color: #eee;
+            border: 1.5px solid #12DE42;
+            border-radius: 5px;
+            font-size: 1em;
+            font-family: Tahoma, Geneva, Verdana, sans-serif;
+            appearance: none;            /* Remove default arrows for most browsers */
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            cursor: pointer;
+            transition: border-color 0.3s ease;
+            background-image:
+                linear-gradient(45deg, transparent 50%, #12DE42 50%),
+                linear-gradient(135deg, #12DE42 50%, transparent 50%);
+            background-position:
+                calc(100% - 20px) calc(1em + 2px),
+                calc(100% - 15px) calc(1em + 2px);
+            background-size: 5px 5px, 5px 5px;
+            background-repeat: no-repeat;
+        }
         </style>
     </head>
     <body>
-        <h1>Carbon Emissions dashboard</h1>
-        <img src="{{url_for('static', filename='plot.png')}}" alt="">
-        <img src="{{url_for('static', filename='pieplot.png')}}" alt="">
+        <h1>Carbon Emissions Dashboard</h1>
         <div id="Refreshpage">
             <form action="/update", method="POST">
+                <select name="Gases" id="Options">
+                    <option value="co2">co2</option>
+                    <option value="nh3">nh3 (Ammonia)</option>
+                    <option value="ch4">ch4 (Methane)</option>
+                    <option value="hfcs">hfcs (HydroFlouroCarbons)</option>
+                    <option value="cfcs">cfcs (ChloroFlouroCarbons)</option>
+
+                </select>
+                <select name="Cont" id="Options">
+                    <option value="Asia">Asia</option>
+                    <option value="Africa">Africa</option>
+                    <option value="Europe">Europe</option>
+                    <option value="South America">South America</option>
+                    <option value="Oceania">Oceania</option>
+                    <option value="North America">North America</option>
+                    
+                </select>
+                <select name="Year" id="Options">
+                    <option value="2024">2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                </select>
                 <input type="submit" value="Refresh stats">
             </form>
         </div>
+        <img src="{{url_for('static', filename='plot.png')}}" alt="">
+        <img src="{{url_for('static', filename='pieplot.png')}}" alt="">
+        
     </body>
 </html>
