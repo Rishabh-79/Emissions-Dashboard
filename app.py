@@ -9,6 +9,13 @@ app=Flask(__name__)
 
 CT_API='https://api.climatetrace.org/v7/sources/'
 
+@app.route('/NotFound', methods=["GET","POST"])
+def unavailable():
+    if request.method=="POST":
+        return redirect('/')
+    else:
+        return render_template('Notfound.html')
+ 
 @app.route('/update', methods=["GET","POST"])
 def updatingplots():
     if request.method=="POST":
@@ -30,6 +37,8 @@ def updatingplots():
         "offset": "0"
         })
         final_val=val.json()
+        if final_val==None:
+            return redirect("/NotFound")
         for i in final_val:
             cntry=i['country']
             d[cntry]=d.get(cntry,0)+i['emissionsQuantity']
