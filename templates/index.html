@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>Dashboard</title>
+        <style>
+            body{
+                margin: 0;
+                font-family: 'Brush Script MT (cursive)', Tahoma, Geneva, Verdana, sans-serif;
+                background: linear-gradient(135deg, #0f0f0f, #1a1a1a);
+                color: #ffffff;
+                background-image: url("static/images.jpg");
+                background-attachment: fixed;
+                background-size: cover;
+                background-position: center;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            #Refreshpage input[type="submit"]:hover {
+                background-color: #12DE42;
+                color: #f0f0f0;
+            }
+            #Refreshpage input[type="submit"] {
+                background-color: #12DE42;       
+                color: #111;                    
+                border: none;
+                border-radius: 6px;
+                padding: 12px 20px;
+                margin: 8px 10px;
+                font-weight: bold;
+                font-size: 1.1em;
+                cursor: pointer;
+                font-family:'Times New Roman', Times, serif ;
+                transition: background-color 0.3s ease, color 0.3s ease;
+                box-shadow: 0 0 10px #12DE42; 
+                display: inline-block;
+                width: auto;
+                min-width: 180px;
+                text-align: center;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Carbon Emissions dashboard</h1>
+        <img src="{{url_for('static', filename='plot.png')}}" alt="">
+        <img src="{{url_for('static', filename='pieplot.png')}}" alt="">
+        <div id="Refreshpage">
+            <form action="/update", method="POST">
+                <input type="submit" value="Refresh stats">
+            </form>
+        </div>
+    </body>
+</html>
