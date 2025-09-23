@@ -2,6 +2,7 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Dashboard</title>
         <style>
             body{
@@ -63,6 +64,54 @@
             background-size: 5px 5px, 5px 5px;
             background-repeat: no-repeat;
         }
+        
+            @media (max-width: 600px) {
+                body {
+                font-size: 1em;
+                padding: 10px;
+                background-attachment: scroll; /* Avoid fixed background glitches on mobile */
+            }
+                h1 {
+                font-size: 1.35em;
+                text-align: center;
+                margin-top: 16px;
+                margin-bottom: 12px;
+            }
+            #Refreshpage {
+                padding: 0;
+                width: 100%;
+            }
+            #Refreshpage form {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+                lign-items: stretch;
+            }
+            #Options {
+                font-size: 1em;
+                min-width: unset;
+                width: 100%;
+                margin: 0;
+            }
+            #Refreshpage input[type="submit"] {
+                font-size: 1em;
+                min-width: unset;
+                width: 100%;
+                margin: 10px 0 0 0;
+                padding: 12px;
+            }
+
+            img {
+                width: 100%;
+                max-width: 100%;
+                height: auto;
+                display: block;
+                margin-bottom: 10px;
+                border-radius: 7px;
+                box-shadow: 0 0 12px #12DE4290;
+            }
+        }
+
         </style>
     </head>
     <body>
